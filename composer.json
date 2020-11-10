@@ -8,5 +8,8 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "9999999-dev"
+    }
 }
