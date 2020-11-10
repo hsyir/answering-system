@@ -1,5 +1,5 @@
 {
-    "name": "hsyir/anwering-system",
+    "name": "hsyir/answering-system",
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +9,22 @@
     ],
     "minimum-stability": "dev",
     "require": {},
+    "autoload": {
+        "psr-4": {
+            "Hsy\\AnsweringSystem\\": "src/"
+        }
+    },
     "require-dev": {
-        "orchestra/testbench": "9999999-dev"
+        "orchestra/testbench": "9999999-dev",
+        "laravel/legacy-factories": "1.x-dev"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hsy\\AnsweringSystem\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "php vendor/phpunit/phpunit/phpunit",
+        "test-debug": "php vendor/phpunit/phpunit/phpunit --debug"
     }
 }
