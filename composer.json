@@ -1,0 +1,12 @@
+{
+    "name": "hsyir/anwering-system",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hossein",
+            "email": "hosseinyaghmaee@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
