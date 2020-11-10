@@ -2,7 +2,7 @@
 
 namespace Hsy\AnsweringSystem\Tests;
 
-use Hsy\AnsweringSystem\AnsweringSystemServiceProvider;
+use Hsy\AnsweringSystem\Providers\AnsweringSystemServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

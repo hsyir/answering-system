@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hsy\AnsweringSystem;
+namespace Hsy\AnsweringSystem\Providers;
 
 
 
@@ -15,6 +15,13 @@ class AnsweringSystemServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->registerFacades();
+    }
 
+    private function registerFacades()
+    {
+        $this->app->singletone("Answering",function(){
+
+        });
     }
 }
