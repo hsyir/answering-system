@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd96448974d0951a7b681447d2a4b85b",
+    "content-hash": "763019bb2706f3821b868eb49eed3e21",
     "packages": [],
     "packages-dev": [
         {
@@ -605,12 +605,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "df91bdc2e9c90c607d902daeb8f381134a2de9ab"
+                "reference": "b60139c9d3b475d5b5dc261c5dcafe8ca49b4a13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/df91bdc2e9c90c607d902daeb8f381134a2de9ab",
-                "reference": "df91bdc2e9c90c607d902daeb8f381134a2de9ab",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b60139c9d3b475d5b5dc261c5dcafe8ca49b4a13",
+                "reference": "b60139c9d3b475d5b5dc261c5dcafe8ca49b4a13",
                 "shasum": ""
             },
             "require": {
@@ -765,7 +765,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-11-09T23:10:15+00:00"
+            "time": "2020-11-10T14:47:10+00:00"
         },
         {
             "name": "laravel/legacy-factories",
@@ -2409,12 +2409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "ef5f94d135164063b1fa7138388c5634012384a2"
+                "reference": "89f4a909af2c820d52c174554ad9d15c1501b546"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ef5f94d135164063b1fa7138388c5634012384a2",
-                "reference": "ef5f94d135164063b1fa7138388c5634012384a2",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/89f4a909af2c820d52c174554ad9d15c1501b546",
+                "reference": "89f4a909af2c820d52c174554ad9d15c1501b546",
                 "shasum": ""
             },
             "require": {
@@ -2505,7 +2505,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-09T10:41:44+00:00"
+            "time": "2020-11-10T12:54:21+00:00"
         },
         {
             "name": "psr/container",
@@ -4019,7 +4019,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/5.x"
+                "source": "https://github.com/symfony/console/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -4085,7 +4085,7 @@
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/css-selector/tree/5.x"
+                "source": "https://github.com/symfony/css-selector/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -4224,7 +4224,7 @@
             "description": "Symfony ErrorHandler Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/error-handler/tree/5.x"
+                "source": "https://github.com/symfony/error-handler/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -4310,7 +4310,7 @@
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/5.x"
+                "source": "https://github.com/symfony/event-dispatcher/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -4453,7 +4453,7 @@
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/5.x"
+                "source": "https://github.com/symfony/finder/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -4607,7 +4607,7 @@
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/5.x"
+                "source": "https://github.com/symfony/http-foundation/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -4631,12 +4631,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "494982ce3d944ccd91beed25e0064cb883ed28b1"
+                "reference": "ad93121b82327d1bed5cabefe272421dd7ff538d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/494982ce3d944ccd91beed25e0064cb883ed28b1",
-                "reference": "494982ce3d944ccd91beed25e0064cb883ed28b1",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/ad93121b82327d1bed5cabefe272421dd7ff538d",
+                "reference": "ad93121b82327d1bed5cabefe272421dd7ff538d",
                 "shasum": ""
             },
             "require": {
@@ -4736,7 +4736,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-04T07:16:55+00:00"
+            "time": "2020-11-10T07:38:36+00:00"
         },
         {
             "name": "symfony/mime",
@@ -4801,7 +4801,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/5.x"
+                "source": "https://github.com/symfony/mime/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -5602,7 +5602,7 @@
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/5.x"
+                "source": "https://github.com/symfony/process/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -5693,7 +5693,7 @@
                 "url"
             ],
             "support": {
-                "source": "https://github.com/symfony/routing/tree/5.x"
+                "source": "https://github.com/symfony/routing/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -5858,7 +5858,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v5.2.0-BETA3"
+                "source": "https://github.com/symfony/string/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -5952,7 +5952,7 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/5.x"
+                "source": "https://github.com/symfony/translation/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -6121,7 +6121,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/5.x"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.2.0-RC1"
             },
             "funding": [
                 {
@@ -6197,7 +6197,7 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.2.0-BETA3"
+                "source": "https://github.com/symfony/yaml/tree/v5.2.0-RC1"
             },
             "funding": [
                 {

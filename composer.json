@@ -1,30 +1,50 @@
 {
-    "name": "hsyir/answering-system",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Hossein",
-            "email": "hosseinyaghmaee@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "Hsy\\AnsweringSystem\\": "src/"
-        }
-    },
-    "require-dev": {
-        "orchestra/testbench": "9999999-dev",
-        "laravel/legacy-factories": "1.x-dev"
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Hsy\\AnsweringSystem\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "php vendor/phpunit/phpunit/phpunit",
-        "test-debug": "php vendor/phpunit/phpunit/phpunit --debug"
+  "name": "hsyir/answering-system",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hossein",
+      "email": "hosseinyaghmaee@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Hsy\\AnsweringSystem\\": "src/"
+    }
+  },
+  "require-dev": {
+    "orchestra/testbench": "9999999-dev",
+    "laravel/legacy-factories": "1.x-dev"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Hsy\\AnsweringSystem\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "php vendor/phpunit/phpunit/phpunit",
+    "test-debug": "php vendor/phpunit/phpunit/phpunit --debug"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "c:/wamp64/www/packages/ticketing",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "aliases": {
+        "Answering": "Hsy\\Answering\\Facades\\Answering"
+      },
+      "providers": [
+        "Hsy\\Answering\\HsyAnsweringSystemServiceProvider"
+      ]
+    }
+  }
 }

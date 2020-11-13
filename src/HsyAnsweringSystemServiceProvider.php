@@ -1,13 +1,12 @@
 <?php
 
 
-namespace Hsy\AnsweringSystem\Providers;
-
+namespace Hsy\AnsweringSystem;
 
 
 use Illuminate\Support\ServiceProvider;
 
-class AnsweringSystemServiceProvider extends ServiceProvider
+class HsyAnsweringSystemServiceProvider extends ServiceProvider
 {
     public function boot()
     {
@@ -20,8 +19,8 @@ class AnsweringSystemServiceProvider extends ServiceProvider
 
     private function registerFacades()
     {
-        $this->app->singletone("Answering",function(){
-
+        $this->app->singleton("Answering", function () {
+            return new Answering;
         });
     }
 }
