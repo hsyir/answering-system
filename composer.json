@@ -28,22 +28,13 @@
     "test": "php vendor/phpunit/phpunit/phpunit",
     "test-debug": "php vendor/phpunit/phpunit/phpunit --debug"
   },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "c:/wamp64/www/packages/ticketing",
-      "options": {
-        "symlink": true
-      }
-    }
-  ],
   "extra": {
     "laravel": {
       "aliases": {
-        "Answering": "Hsy\\Answering\\Facades\\Answering"
+        "Answering": "Hsy\\AnsweringSystem\\Facades\\Answering"
       },
       "providers": [
-        "Hsy\\Answering\\HsyAnsweringSystemServiceProvider"
+        "Hsy\\AnsweringSystem\\HsyAnsweringSystemServiceProvider"
       ]
     }
   }
