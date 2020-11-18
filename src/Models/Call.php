@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Call extends Model
 {
-    public function callInfo()
+    public function callerInfo()
     {
-        return $this->hasOne(CallerInfo::class);
+        return $this->hasOne(CallerInfo::class)->withDefault(["name" => ""]);
     }
 }
