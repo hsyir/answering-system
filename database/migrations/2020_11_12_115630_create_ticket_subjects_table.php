@@ -14,6 +14,7 @@ class CreateTicketSubjectsTable extends \Illuminate\Database\Migrations\Migratio
             $table->text("description")->nullable();
             $table->unsignedInteger("department_id");
             $table->integer("priority")->default(1);
+            $table->timestamps();
         });
     }
 

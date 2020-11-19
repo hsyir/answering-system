@@ -11,5 +11,5 @@
 @section("content")
     <x-errors></x-errors>
     <x-success></x-success>
-        @include("answering::departments._form",["action"=>"create"])
+        @include("answering::ticketSubjects._form",["action"=>"create"])
 @endsection

@@ -7,3 +7,6 @@ Route::match(["put", "post"], "calls", "CallController@store")->name("calls.stor
 
 Route::resource("departments", "DepartmentController")->except(["update", "store"]);
 Route::match(['PUT', "POST"], "departments", "DepartmentController@store")->name("departments.store");
+
+Route::resource("ticketSubjects", "TicketSubjectController")->except(["update", "store"]);
+Route::match(['PUT', "POST"], "ticketSubjects", "TicketSubjectController@store")->name("ticketSubjects.store");
