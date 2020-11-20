@@ -9,9 +9,9 @@
         });
     @endphp
 
-
     {{ Html::hidden()->name('ticketSubject_id')->value($ticketSubject->id)->when( $action=='edit') }}
     {{ Html::method()->value("PUT")->when($action=='edit') }}
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -42,6 +42,19 @@
                     ->caption("اولویت")
                     ->description("")
                      }}
+                    @foreach(config("answering.ticket_subjects_fields",[]) as $field=>$label)
+                        {{
+                            Html::checkbox("fields[{$field}]")
+                            ->label($label)
+                            ->value($field)
+                            ->checked(
+                                old(
+                                    "fields.{$field}",
+                                    isset($ticketSubject->fields[$field])
+                                    )
+                                )
+                        }}
+                    @endforeach
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pull-left">{{ Html::submit()->label('ذخیره') }}</div>

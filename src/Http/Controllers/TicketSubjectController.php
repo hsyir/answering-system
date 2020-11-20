@@ -50,6 +50,8 @@ class TicketSubjectController extends Controller
         $ticketSubject->department_id = $request->department_id;
         $ticketSubject->description = $request->description;
         $ticketSubject->priority = $request->priority;
+        $ticketSubject->fields = $request->fields;
+
         $ticketSubject->save();
 
         return self::redirectWithSuccess(route("answering.ticketSubjects.index"),"ثبت شد");

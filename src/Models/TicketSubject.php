@@ -12,4 +12,8 @@ class TicketSubject extends Model
     {
         return $this->belongsTo(Department::class);
     }
+
+    protected $casts=[
+        "fields"=>"array"
+    ];
 }

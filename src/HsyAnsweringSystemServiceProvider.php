@@ -14,6 +14,12 @@ class HsyAnsweringSystemServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../database/migrations/' => database_path('migrations')
         ], 'migrations');
+
+        $this->publishes([
+            __DIR__ . '/../config/answering.php' => config_path('answering.php'),
+        ], 'config');
+
+
     }
 
     public function register()
@@ -31,6 +37,7 @@ class HsyAnsweringSystemServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'answering');
         $this->registerFacades();
         $this->registerRoutes();
+        $this->registerConfigs();
     }
 
 
@@ -67,4 +74,11 @@ class HsyAnsweringSystemServiceProvider extends ServiceProvider
             "as"=>"answering.",
         ];
     }
+
+    private function registerConfigs()
+    {
+
+        $this->mergeConfigFrom(__DIR__ . '/../config/answering.php', 'answering');
+    }
+
 }
