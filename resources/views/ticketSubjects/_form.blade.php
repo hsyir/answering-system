@@ -42,10 +42,10 @@
                     ->caption("اولویت")
                     ->description("")
                      }}
-                    @foreach(config("answering.ticket_subjects_fields",[]) as $field=>$label)
+                    @foreach(config("answering.ticket_subjects_fields",[]) as $field=>$config)
                         {{
                             Html::checkbox("fields[{$field}]")
-                            ->label($label)
+                            ->label($config["label"])
                             ->value($field)
                             ->checked(
                                 old(
