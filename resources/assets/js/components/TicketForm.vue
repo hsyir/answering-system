@@ -1,18 +1,15 @@
 <template>
-    <div v-if="ifStep('selectSubject')">
-        <select-subject></select-subject>
-    </div>
-    <div v-if="ifStep('ticketForm')">
-        <ticket-form></ticket-form>
+    <div>
+        <form >
+            
+        </form>
     </div>
 </template>
 
 <script>
-    import SelectSubject from "./SelectSubject";
-    import TicketForm from "./TicketForm";
     export default {
-        name: "CreateTicket",
-        components: {TicketForm, SelectSubject},
+        name: "TicketForm",
+        components: {},
         props: ["call","offices","departments","cities"],
         data: function () {
             return {
