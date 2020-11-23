@@ -22,5 +22,9 @@ return [
             "label" => "آدرس",
             "type" => "text",
         ],
+        "body" => [
+            "label" => "متن درخواست",
+            "type" => "richtext",
+        ],
     ]
 ];

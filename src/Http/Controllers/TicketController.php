@@ -2,10 +2,12 @@
 
 namespace Hsy\AnsweringSystem\Http\Controllers;
 
+use Hsy\AnsweringSystem\Http\Resources\Ticket as TicketResource;
+use Hsy\AnsweringSystem\Models\Ticket;
 use Hsy\AnsweringSystem\Models\TicketSubject;
 use Illuminate\Http\Request;
 
-class TicketSubjectController extends Controller
+class TicketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,6 @@ class TicketSubjectController extends Controller
      */
     public function index()
     {
-        $ticketSubjects = TicketSubject::with("department")->get();
-        return view("answering::ticketSubjects.all", compact("ticketSubjects"));
     }
 
     /**
@@ -25,40 +25,13 @@ class TicketSubjectController extends Controller
      */
     public function create()
     {
-        $ticketSubject = new TicketSubject();
-        return view("answering::ticketSubjects.create", compact("ticketSubject"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
-                "title" => "required",
-                "department_id" => "required|exists:departments,id",
-            ]
-        );
-
-        $ticketSubject = $request->isMethod("post") ? new TicketSubject() : TicketSubject::find($request->ticketSubject_id);
-
-        $ticketSubject->title = $request->title;
-        $ticketSubject->department_id = $request->department_id;
-        $ticketSubject->description = $request->description;
-        $ticketSubject->priority = $request->priority;
-        $ticketSubject->fields =
-            collect($request->fields)->map(function ($item) {
-                return config("answering.ticket_subjects_fields." . $item);
-            });
-
-        $ticketSubject->save();
-
-        return self::redirectWithSuccess(route("answering.ticketSubjects.index"), "ثبت شد");
-
+        $ticket = Ticket::create($request->all());
+        return new TicketResource($ticket);
     }
 
     /**
