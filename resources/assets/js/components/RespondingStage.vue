@@ -3,8 +3,8 @@
         <div v-if="ifStep('selectRequestType')">
             <select-request-type @select="selectStep"></select-request-type>
         </div>
-        <div v-if="ifStep('ticket')">
-            <create-ticket></create-ticket>
+        <div v-if="ifStep('createTicket')">
+            <create-ticket :departments="departments"></create-ticket>
         </div>
     </div>
 </template>
@@ -18,7 +18,8 @@
         props: ["call"],
         components: {
             CreateTicket,
-            SelectRequestType
+            SelectRequestType,
+
         },
         data: function () {
             return {
@@ -39,9 +40,17 @@
             },
             goToStep(step) {
                 this.step = step;
+            },
+            getDepartments() {
+                let vm = this;
+                axios.get("/answering/getDepartments")
+                    .then(res => {
+                        vm.departments = res.data.data;
+                    })
             }
         },
         mounted() {
+            this.getDepartments();
         },
     }
 </script>

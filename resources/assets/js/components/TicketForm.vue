@@ -1,7 +1,15 @@
 <template>
     <div>
         <form >
-            
+            national_code
+            mobile_number
+            phone_number
+            body
+            priority
+            city_id
+            office_id
+            address
+
         </form>
     </div>
 </template>

@@ -1,9 +1,11 @@
 <template>
-    <div v-if="ifStep('selectSubject')">
-        <select-subject></select-subject>
-    </div>
-    <div v-if="ifStep('ticketForm')">
-        <ticket-form></ticket-form>
+    <div>
+        <div v-if="ifStep('selectSubject')" >
+            <select-subject :departments="departments" @subjectSelected="subjectSelected"></select-subject>
+        </div>
+        <div v-if="ifStep('ticketForm')">
+            <ticket-form></ticket-form>
+        </div>
     </div>
 </template>
 
@@ -21,6 +23,18 @@
             }
         },
         methods: {
+            ifStep(step) {
+                return step == this.step;
+            },
+            selectStep(step) {
+                this.goToStep(step);
+            },
+            goToStep(step) {
+                this.step = step;
+            },
+            subjectSelected(ticket_subject,department){
+                this.goToStep("ticketForm")
+            }
         },
         mounted() {
         },

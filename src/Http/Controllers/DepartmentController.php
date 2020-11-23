@@ -2,6 +2,7 @@
 
 namespace Hsy\AnsweringSystem\Http\Controllers;
 
+use Hsy\AnsweringSystem\Http\Resources\DepartmentCollection;
 use Hsy\AnsweringSystem\Models\Department;
 use Illuminate\Http\Request;
 
@@ -79,5 +80,10 @@ class DepartmentController extends Controller
     public function destroy(Department $department)
     {
         //
+    }
+
+    public function getDepartments()
+    {
+        return new DepartmentCollection(Department::all());
     }
 }

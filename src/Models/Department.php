@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
 {
-
+    public function ticketSubjects()
+    {
+        return $this->hasMany(TicketSubject::class);
+    }
 }
