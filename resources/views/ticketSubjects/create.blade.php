@@ -1,7 +1,7 @@
 @extends("answering::layout")
 @section("content_header")
     @component("components.breadcrump",
-    ["items"=> ["Calls" =>"","current"=>"تعریف دپارتمان جدید"]])
+    ["items"=> ["Ticket Subjects" =>"","current"=>"تعریف دپارتمان جدید"]])
     @endcomponent
 @endsection
 

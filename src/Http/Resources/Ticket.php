@@ -16,9 +16,11 @@ class Ticket extends JsonResource
     {
         return [
             "id"=>$this->id,
-            "ticket_subject_id"=>$this->ticket_subject_id,
+            "ticket_subject"=>new TicketSubject($this->subject),
+            "department"=>new Department($this->department),
             "body"=>$this->body,
             "address"=>$this->address,
+            "uuid"=>$this->uuid,
         ];
     }
 }

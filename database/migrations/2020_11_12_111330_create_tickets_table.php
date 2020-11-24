@@ -9,7 +9,7 @@ class CreateTicketsTable extends \Illuminate\Database\Migrations\Migration
     public function up()
     {
         Schema::create("tickets", function (Blueprint $table) {
-            $table->id();
+            $table->id()->from(100000);
             $table->string("subject")->nullable();
             $table->text("body")->nullable();
             $table->unsignedInteger("creator_id")->nullable();
@@ -20,6 +20,7 @@ class CreateTicketsTable extends \Illuminate\Database\Migrations\Migration
             $table->unsignedInteger("priority_id")->nullable();
             $table->dateTime("closed_at")->nullable();
             $table->integer("score")->nullable();
+            $table->string("uuid")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

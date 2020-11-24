@@ -1,7 +1,7 @@
 @extends("answering::layout")
 @section("content_header")
     @component("components.breadcrump",
-    ["items"=> ["Dashboard" =>"","Departments" =>route("answering.departments.index"),"current"=>"ویرایش اطلاعات صف"]])
+    ["items"=> ["Dashboard" =>"/dashboard","Departments" =>route("answering.departments.index"),"current"=>"ویرایش اطلاعات دپارتمان"]])
     @endcomponent
 @endsection
 

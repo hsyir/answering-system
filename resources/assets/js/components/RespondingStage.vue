@@ -4,7 +4,7 @@
             <select-request-type @select="selectStep"></select-request-type>
         </div>
         <div v-if="ifStep('createTicket')">
-            <create-ticket :departments="departments"></create-ticket>
+            <create-ticket :departments="departments" @cancel="crateTicketCancel"></create-ticket>
         </div>
     </div>
 </template>
@@ -47,6 +47,9 @@
                     .then(res => {
                         vm.departments = res.data.data;
                     })
+            },
+            crateTicketCancel(){
+                this.goToStep("selectRequestType")
             }
         },
         mounted() {

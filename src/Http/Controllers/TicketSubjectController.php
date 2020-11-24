@@ -2,6 +2,7 @@
 
 namespace Hsy\AnsweringSystem\Http\Controllers;
 
+use Hsy\AnsweringSystem\Models\Department;
 use Hsy\AnsweringSystem\Models\TicketSubject;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class TicketSubjectController extends Controller
      */
     public function index()
     {
-        $ticketSubjects = TicketSubject::with("department")->get();
-        return view("answering::ticketSubjects.all", compact("ticketSubjects"));
+        $departments = Department::with("ticketSubjects")->withCount("ticketSubjects")->get();
+        return view("answering::ticketSubjects.all", compact("departments"));
     }
 
     /**
@@ -23,10 +24,10 @@ class TicketSubjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Department $department=null)
     {
         $ticketSubject = new TicketSubject();
-        return view("answering::ticketSubjects.create", compact("ticketSubject"));
+        return view("answering::ticketSubjects.create", compact("ticketSubject","department"));
     }
 
     /**

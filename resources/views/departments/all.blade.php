@@ -1,7 +1,7 @@
 @extends("answering::layout")
 @section("content_header")
-    @component("components.breadcrump",["items"=> ["Dashboard" =>"","current"=>"صف ها"]])
-        <a href="{{ route("answering.departments.create") }}" class="btn btn-info btn-sm">جدید</a>
+    @component("components.breadcrump",["items"=> ["Dashboard" =>"","current"=>"دپارتمان ها"]])
+        <a href="{{ route("answering.departments.create") }}" class="btn btn-info btn-sm">دپارتمان جدید</a>
     @endcomponent
 @endsection
 
@@ -14,15 +14,18 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th></th>
-                    <th>نام</th>
+                    <th>نام واحد</th>
+                    <th>تعداد موضوعات</th>
+                    <th>تعداد درخواست ها</th>
                 </tr>
+
                 </thead>
                 <tbody>
                 @foreach($departments as $department)
                     <tr>
-                        <td></td>
                         <td><a href="{{ route("answering.departments.edit",$department) }}">{{ $department->name }}</a></td>
+                        <td>{{ $department->ticket_subjects_count }}</td>
+                        <td>{{ $department->tickets_count }}</td>
                     </tr>
                 @endforeach
                 </tbody>

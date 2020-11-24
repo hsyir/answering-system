@@ -1,7 +1,7 @@
 @extends("answering::layout")
 @section("content_header")
     @component("components.breadcrump",
-    ["items"=> ["Dashboard" =>"","Departments" =>route("answering.departments.index"),"current"=>"ویرایش اطلاعات صف"]])
+    ["items"=> ["Dashboard" =>"/dashboard","Ticket Subjects" =>route("answering.ticketSubjects.index"),"current"=>"ویرایش اطلاعات موضوع تیکت"]])
     @endcomponent
 @endsection
 
@@ -11,5 +11,5 @@
 @section("content")
     <x-errors></x-errors>
     <x-success></x-success>
-        @include("answering::ticketSubjects._form",["action"=>"edit"])
+    @include("answering::ticketSubjects._form",["action"=>"edit"])
 @endsection

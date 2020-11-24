@@ -13,6 +13,11 @@ class Department extends Model
 
     public function ticketSubjects()
     {
-        return $this->hasMany(TicketSubject::class);
+        return $this->hasMany(TicketSubject::class,"department_id");
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
     }
 }

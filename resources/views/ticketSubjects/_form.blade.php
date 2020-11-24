@@ -28,9 +28,18 @@
                     ->label("توضح بیشتر")
                     ->description("")
                      }}
+
+
+                    @php
+                        if($action=="create")
+                            $department= old("department_id",$department->id);
+                        else
+                            $department= old("department_id",$ticketSubject->department_id);
+                    @endphp
+
                     {{
                     Html::select("department_id")
-                    ->value(old("department_id",$ticketSubject->department_id))
+                    ->value($department)
                     ->select_options($departments)
                     ->caption("دپارتمان")
                     ->description("")

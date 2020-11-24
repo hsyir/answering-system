@@ -6,6 +6,8 @@ use Hsy\AnsweringSystem\Http\Resources\Ticket as TicketResource;
 use Hsy\AnsweringSystem\Models\Ticket;
 use Hsy\AnsweringSystem\Models\TicketSubject;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 
 class TicketController extends Controller
 {
@@ -30,7 +32,9 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
-        $ticket = Ticket::create($request->all());
+        $data = $request->all();
+        $data["uuid"]=Str::random(16);
+        $ticket = Ticket::create($data);
         return new TicketResource($ticket);
     }
 
