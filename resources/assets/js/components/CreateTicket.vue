@@ -4,7 +4,8 @@
             <select-subject :departments="departments" @subjectSelected="subjectSelected"></select-subject>
         </div>
         <div v-if="ifStep('ticketForm')">
-            <ticket-form :ticket_subject="selected_subject" :department="selected_department"></ticket-form>
+            <ticket-form :ticket_subject="selected_subject" :department="selected_department"
+                         @ticketStored="newTicketStored"></ticket-form>
         </div>
     </div>
 </template>
@@ -39,8 +40,17 @@
             },
             subjectSelected(ticket_subject, department) {
                 this.selected_subject = ticket_subject;
-                this.selected_department=department;
+                this.selected_department = department;
                 this.goToStep("ticketForm")
+            },
+            newTicketStored(ticket) {
+                Swal.fire({
+                    title: 'انجام شد!',
+                    text: 'درخواست مورد نظر ثبت شد',
+                    icon: 'success',
+                    confirmButtonText: 'بسیار خب'
+                })
+                this.goToStep("selectSubject")
             }
         },
         mounted() {

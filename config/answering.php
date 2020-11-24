@@ -6,15 +6,15 @@ return [
             "label" => "کد ملی",
             "type" => "text",
         ],
-        "name" => [
-            "label" => "نام",
+        "caller_name" => [
+            "label" => " نام تماس گیرنده",
             "type" => "text",
         ],
-        "office" => [
+        "office_id" => [
             "label" => "اداره",
             "type" => "office",
         ],
-        "city" => [
+        "city_id" => [
             "label" => "شهر",
             "type" => "city",
         ],

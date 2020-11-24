@@ -5,11 +5,11 @@
                 <div class="col-md-12" v-for="(field,key) in ticket_subject.fields">
                     <div class="form-group" v-if="field.type=='text'">
                         <label :for="key">{{ field.label }}</label>
-                        <input type="text" class="form-control" :id="key" v-model:="fields">
+                        <input type="text" class="form-control" :id="key" v-model="fields[key]">
                     </div>
                     <div class="form-group" v-if="field.type=='richtext'">
                         <label :for="key">{{ field.label }}</label>
-                        <textarea class="form-control" :id="key" v-model:="fields[key]" cols="30" rows="10"></textarea>
+                        <textarea class="form-control" :id="key" v-model="fields[key]" cols="30" rows="10"></textarea>
                     </div>
                 </div>
             </div>
@@ -26,14 +26,11 @@
     export default {
         name: "TicketForm",
         components: {},
-        props: ["ticket_subject","department"],
+        props: ["ticket_subject", "department"],
         data: function () {
             return {
                 loading: false,
-                fields: {
-                    address:"add",
-                    body:"d23",
-                }
+                fields: {}
             }
         },
         methods: {
@@ -42,21 +39,25 @@
                 this.loading = true;
                 axios.post("/answering/tickets", this.collectData())
                     .then(res => {
-                        console.log(res);
+                        vm.ticketStored(res.data)
                     });
             },
             collectData() {
-
                 return {
-                    ...{
-                        ticket_subject_id: this.ticket_subject.id,
-                        department_id: this.department.id,
-                    },
+                    ticket_subject_id: this.ticket_subject.id,
+                    department_id: this.department.id,
                     ...this.fields
                 }
             },
             submitForm() {
                 this.saveTicket();
+            },
+            ticketStored(ticket) {
+                this.resetForm();
+                this.$emit("ticketStored", ticket)
+            },
+            resetForm() {
+                this.fields = {};
             }
         },
         mounted() {

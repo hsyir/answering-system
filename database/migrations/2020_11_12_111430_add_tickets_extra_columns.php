@@ -11,6 +11,7 @@ class AddTicketsExtraColumns extends \Illuminate\Database\Migrations\Migration
         Schema::table("tickets", function ( $table) {
             $table->unsignedInteger("call_id")->nullable();
             $table->string("national_code")->nullable();
+            $table->string("caller_name")->nullable();
             $table->string("mobile_number")->nullable();
             $table->string("phone_number")->nullable();
             $table->string("address")->nullable();
