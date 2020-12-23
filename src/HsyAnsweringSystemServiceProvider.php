@@ -70,7 +70,7 @@ class HsyAnsweringSystemServiceProvider extends ServiceProvider
         return [
             'namespace' => 'Hsy\AnsweringSystem\Http\Controllers',
             'prefix' => "answering",
-            'middleware' => 'web',
+            'middleware' => ['web',"auth"],
             "as"=>"answering.",
         ];
     }
