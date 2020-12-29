@@ -56,7 +56,7 @@ class DepartmentController extends Controller
      */
     public function show(Department $department)
     {
-        //
+        return view("answering::departments.show",compact("department"));
     }
 
     /**
@@ -85,5 +85,16 @@ class DepartmentController extends Controller
     public function getDepartments()
     {
         return new DepartmentCollection(Department::all());
+    }
+
+
+    public function addUser(Request $request,Department $department){
+        $department->users()->attach([$request->user_id]);
+        return self::redirectBackWithSuccess("حله داداش");
+    }
+
+    public function removeUser(Request $request,Department $department){
+        $department->users()->detach($request->user_id);
+        return self::redirectBackWithSuccess("حله داداش");
     }
 }

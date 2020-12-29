@@ -23,7 +23,7 @@
                 <tbody>
                 @foreach($departments as $department)
                     <tr>
-                        <td><a href="{{ route("answering.departments.edit",$department) }}">{{ $department->name }}</a></td>
+                        <td><a href="{{ route("answering.departments.show",$department) }}">{{ $department->name }}</a></td>
                         <td>{{ $department->ticket_subjects_count }}</td>
                         <td>{{ $department->tickets_count }}</td>
                     </tr>
