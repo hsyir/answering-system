@@ -14,7 +14,7 @@ class Ticket extends Model
     {
         return $this->belongsTo(Department::class);
     }
-    public function subject()
+    public function ticketSubject()
     {
         return $this->belongsTo(TicketSubject::class,"ticket_subject_id");
     }

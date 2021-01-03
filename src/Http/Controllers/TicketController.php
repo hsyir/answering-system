@@ -5,7 +5,10 @@ namespace Hsy\AnsweringSystem\Http\Controllers;
 use Hsy\AnsweringSystem\Http\Resources\Ticket as TicketResource;
 use Hsy\AnsweringSystem\Models\Ticket;
 use Hsy\AnsweringSystem\Models\TicketSubject;
+use Hsy\AnsweringSystem\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
 
@@ -18,6 +21,9 @@ class TicketController extends Controller
      */
     public function index()
     {
+        $departments = $this->user()->departments()->get()->pluck("id");
+        $tickets = Ticket::whereIn("department_id",$departments)->with("department","ticketSubject")->get();
+        return view("answering::tickets.all",compact("tickets"));
     }
 
     /**
@@ -70,5 +76,15 @@ class TicketController extends Controller
     public function destroy(TicketSubject $ticketSubject)
     {
         //
+    }
+
+
+    function user()
+    {
+        $user = \Illuminate\Support\Facades\Auth::user();
+        if (!$user)
+            return null;
+
+        return \Hsy\AnsweringSystem\Models\User::find($user->id);
     }
 }
