@@ -9,14 +9,17 @@
   ],
   "minimum-stability": "dev",
   "require": {
+    "illuminate/support": "8.0"
   },
   "autoload": {
     "psr-4": {
       "Hsy\\AnsweringSystem\\": "src/"
-    }
+    },
+    "files": [
+      "src/Files/helpers.php"
+    ]
   },
   "require-dev": {
-    "orchestra/testbench": "9999999-dev",
     "laravel/legacy-factories": "1.x-dev"
   },
   "autoload-dev": {
