@@ -22,8 +22,8 @@ class TicketController extends Controller
     public function index()
     {
         $departments = $this->user()->departments()->get()->pluck("id");
-        $tickets = Ticket::whereIn("department_id",$departments)->with("department","ticketSubject")->get();
-        return view("answering::tickets.all",compact("tickets"));
+        $tickets = Ticket::whereIn("department_id", $departments)->with("department", "ticketSubject")->get();
+        return view("answering::tickets.all", compact("tickets"));
     }
 
     /**
@@ -38,8 +38,14 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            "mobile_number" => "sometimes|nullable|iran_mobile",
+            "national_code" => "sometimes|nullable|iran_national_code",
+        ]);
+
         $data = $request->all();
-        $data["uuid"]=Str::random(16);
+        $data["uuid"] = Str::random(16);
         $ticket = Ticket::create($data);
         return new TicketResource($ticket);
     }
