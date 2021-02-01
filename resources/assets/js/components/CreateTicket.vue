@@ -6,6 +6,8 @@
         </div>
         <div v-if="ifStep('ticketForm')">
             <ticket-form :ticket_subject="selected_subject" :department="selected_department"
+                         :offices="offices"
+                         :cities="cities"
                          @ticketStored="newTicketStored"
                          @cancelForm="cancelForm">
             </ticket-form>

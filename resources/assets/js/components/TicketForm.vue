@@ -16,14 +16,31 @@
                 <form>
                     <div class="row">
                         <div class="col-md-12" v-for="(field,key) in ticket_subject.fields">
+
                             <div class="form-group" v-if="field.type=='text'">
                                 <label :for="key">{{ field.label }}: </label>
                                 <input type="text" class="form-control" :id="key" v-model="fields[key]">
                             </div>
+
                             <div class="form-group" v-if="field.type=='richtext'">
                                 <label :for="key">{{ field.label }}: </label>
-                                <textarea class="form-control" :id="key" v-model="fields[key]" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" :id="key" v-model="fields[key]" cols="30"
+                                          rows="10"></textarea>
                             </div>
+
+                            <div class="form-group" v-if="field.type=='city'">
+                                <label :for="key">{{ field.label }}: </label>
+                                <select :id="key" v-model="fields[key]" class="form-control">
+                                    <option v-for='city in cities' :value="city.id">{{ city.name }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group" v-if="field.type=='office'">
+                                <label :for="key">{{ field.label }}: </label>
+                                <select :id="key" v-model="fields[key]" class="form-control">
+                                    <option v-for='office in offices' :value="office.id">{{ office.name }}</option>
+                                </select>
+                            </div>
+
                         </div>
                     </div>
                     <div class="row">
@@ -42,11 +59,11 @@
     export default {
         name: "TicketForm",
         components: {},
-        props: ["ticket_subject", "department"],
+        props: ["ticket_subject", "department","offices",'cities'],
         data: function () {
             return {
                 loading: false,
-                fields: {}
+                fields: {},
             }
         },
         methods: {
@@ -56,6 +73,33 @@
                 axios.post("/answering/tickets", this.collectData())
                     .then(res => {
                         vm.ticketStored(res.data.data)
+                    })
+                    .catch(function (error) {
+                        if (error.response) {
+                            // Request made and server responded
+                            let errors = error.response.data.errors;
+
+                            let errorMsg = "";
+
+                            for (error in errors) {
+                                errorMsg += `<li class="text-right">${errors[error]}</li>`;
+                            }
+
+                            errorMsg = `<ul>${errorMsg}</ul>`
+
+                            Swal.fire({
+                                title: 'مشکلی پیش آمده است!',
+                                icon: 'error',
+                                html: errorMsg,
+                                showCloseButton: true,
+                                showCancelButton: false,
+                                showConfirmButton: true,
+                                confirmButtonText: "بسیار خب",
+                                focusConfirm: true,
+                            })
+
+
+                        }
                     });
             },
             collectData() {
@@ -69,7 +113,20 @@
                 this.saveTicket();
             },
             ticketStored(ticket) {
-                console.log(ticket)
+                let msg = "درخواست ثبت شد"
+                    + "<br>"
+                    + "شماره پیگیری:"
+                    + ticket.id;
+                Swal.fire({
+                    title: 'انجام شد',
+                    icon: 'success',
+                    html: msg,
+                    showCloseButton: true,
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    confirmButtonText: "مشاهده جزییات درخواست",
+                    focusConfirm: true,
+                })
                 this.resetForm();
                 this.$emit("ticketStored", ticket)
             },
