@@ -6,6 +6,10 @@ return [
             "label" => "کد ملی",
             "type" => "text",
         ],
+        "mobile_number" => [
+            "label" => "شماره موبایل",
+            "type" => "text",
+        ],
         "caller_name" => [
             "label" => " نام تماس گیرنده",
             "type" => "text",
@@ -28,3 +32,4 @@ return [
         ],
     ]
 ];
+

@@ -14,6 +14,8 @@ class AddTicketsExtraColumns extends \Illuminate\Database\Migrations\Migration
             $table->string("caller_name")->nullable();
             $table->string("mobile_number")->nullable();
             $table->string("phone_number")->nullable();
+            $table->string("extra_phone_number")->nullable();
+            $table->string("responsible_employee_name")->nullable();
             $table->string("address")->nullable();
             $table->unsignedInteger("city_id")->nullable();
             $table->unsignedInteger("office_id")->nullable();
