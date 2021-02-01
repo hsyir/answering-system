@@ -20,6 +20,10 @@ class Ticket extends JsonResource
             "department"=>new Department($this->department),
             "body"=>$this->body,
             "address"=>$this->address,
+            "national_code"=>$this->national_code,
+            "mobile_number"=>$this->mobile_number,
+            "phone_number"=>$this->phone_number,
+            "caller_name"=>$this->caller_name,
             "uuid"=>$this->uuid,
         ];
     }
