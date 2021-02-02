@@ -34,11 +34,21 @@
                                     <option v-for='city in cities' :value="city.id">{{ city.name }}</option>
                                 </select>
                             </div>
-                            <div class="form-group" v-if="field.type=='office'">
+
+                            <div class="form-group" v-else-if="field.type=='office'">
+
+                                <div class="form-group">
+                                    <label for="city">شهر:  </label>
+                                    <select id="city" v-model="fields['city_id']" class="form-control" @change="citySelected($event)">
+                                        <option v-for='city in cities' :value="city.id" >{{ city.name }}</option>
+                                    </select>
+                                </div>
+
                                 <label :for="key">{{ field.label }}: </label>
                                 <select :id="key" v-model="fields[key]" class="form-control">
                                     <option v-for='office in offices' :value="office.id">{{ office.name }}</option>
                                 </select>
+
                             </div>
 
                         </div>
@@ -59,11 +69,12 @@
     export default {
         name: "TicketForm",
         components: {},
-        props: ["ticket_subject", "department","offices",'cities'],
+        props: ["ticket_subject", "department", 'cities'],
         data: function () {
             return {
                 loading: false,
                 fields: {},
+                offices:{},
             }
         },
         methods: {
@@ -136,8 +147,14 @@
             cancelForm() {
                 this.resetForm();
                 this.$emit("cancelForm");
+            },
+            citySelected(event) {
+                let city_id = event.target.value;
+                this.offices = _.keyBy(this.cities,"id")[city_id]["offices"];
             }
+
         },
+
         mounted() {
         },
     }
