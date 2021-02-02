@@ -17,6 +17,7 @@ class City extends JsonResource
         return [
             "id"=>$this->id,
             "name"=>$this->name,
+            "offices"=>new OfficeCollection($this->offices)
         ];
     }
 }
