@@ -25,7 +25,7 @@
                     <tr>
                         <td>{{ $ticket->id }}</td>
                         <td>{{ $ticket->department->name }}</td>
-                        <td>{{ $ticket->ticketSubject->title }}</td>
+                        <td><a href="{{route("answering.tickets.show",$ticket) }}">{{  $ticket->ticketSubject->title }}</a></td>
                     </tr>
                 @endforeach
                 </tbody>

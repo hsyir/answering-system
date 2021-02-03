@@ -12,11 +12,9 @@
                     </div>
                 </div>
                 <hr>
-
                 <form>
                     <div class="row">
                         <div class="col-md-12" v-for="(field,key) in ticket_subject.fields">
-
                             <div class="form-group" v-if="field.type=='text'">
                                 <label :for="key">{{ field.label }}: </label>
                                 <input type="text" class="form-control" :id="key" v-model="fields[key]">

@@ -45,6 +45,7 @@ class TicketController extends Controller
         ]);
 
         $data = $request->all();
+        $data["creator_id"] = Auth::user() ?? Auth::user()->id ;
         $data["uuid"] = Str::random(16);
         $ticket = Ticket::create($data);
         return new TicketResource($ticket);
@@ -56,9 +57,9 @@ class TicketController extends Controller
      * @param \App\Models\Hsy\Answering\Models\TicketSubject $ticketSubject
      * @return \Illuminate\Http\Response
      */
-    public function show(TicketSubject $ticketSubject)
+    public function show(Ticket $ticket)
     {
-        //
+        return view("answering::tickets.show",compact("ticket"));
     }
 
     /**
@@ -67,9 +68,9 @@ class TicketController extends Controller
      * @param \App\Models\Hsy\Answering\Models\TicketSubject $ticketSubject
      * @return \Illuminate\Http\Response
      */
-    public function edit(TicketSubject $ticketSubject)
+    public function edit(Ticket $ticket)
     {
-        return view("answering::ticketSubjects.edit", compact("ticketSubject"));
+        return view("answering::ticketSubjects.edit", compact("ticket"));
     }
 
 

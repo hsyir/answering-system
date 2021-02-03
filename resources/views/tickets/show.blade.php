@@ -1,7 +1,7 @@
-@extends("back.layout.app")
+@extends("answering::layout")
 @section("content_header")
     @component("components.breadcrump",
-    ["items"=> ["Dashboard" =>route("admin.dashboard.index"),"Queues" =>route("admin.queues.index"),"current"=>"مشاهده وضعیت صف"]])
+    ["items"=> ["Dashboard" =>"","Tickets" =>route("answering.tickets.index"),"current"=>"مشاهده تیکت"]])
     @endcomponent
 @endsection
 @php
@@ -15,19 +15,32 @@
         <div class="col-md-6 mb-4">
             <div class="card ">
                 <div class="card-header">
-                    اطلاعات صف
+                    مشاهده جزییات تیکت
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="text-success h4"><i class="fa fa-user"></i> {{ $queue->name }} </div>
+                            <div class="text-success"> {{ $ticket->ticketSubject->title }} </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            {{ Html::info()->value($queue->credit_ratio)->label("ضریب کسر اعتبار")->icon("money") }}
-                            {{ Html::info()->value($queue->entrance_fee)->label("هزینه ورودی")->icon("money") }}
-                            {{ Html::info()->value($queue->simotel_number)->label("داخلی سیموتل")->icon("phone") }}
+                        <div class="col-md-12">
+                            {{ Html::info()->value($ticket->ticketSubject->title)->label("موضوع درخواست")->icon("office") }}
+        {{ Html::info()->when($ticket->isFieldDefined("body"))->value($ticket->body)->label("متن درخواست")->icon("office") }}
+        {{ Html::info()->value($ticket->department->name)->label("دپارتمان")->icon("office") }}
+        {{ Html::info()->value($ticket->creator->name)->label("کاربر ایجاد کننده")->icon("user-plus") }}
+        {{ Html::info()->value($ticket->user->name)->label("کاربر مسئول")->icon("user-plus") }}
+        {{ Html::info()->value($ticket->priority_id)->label("اولویت")->icon("") }}
+        {{ Html::info()->value($ticket->status_id)->label("وضعیت")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("mobile_number"))->value($ticket->mobile_number)->label("شماره موبایل")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("phone_number"))->value($ticket->phone_number)->label("شماره تلفن ثابت")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("address"))->value($ticket->address)->label("آدرس")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("extra_mobile_number"))->value($ticket->extra_mobile_number)->label("شماره موبایل دوم")->icon("") }}
+        {{ Html::info()->value($ticket->caller_name)->label("نام تماس گیرنده")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("national_code"))->value($ticket->national_code)->label("کد ملی")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("city_id"))->value($ticket->city->name)->label("شهر")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("office_id"))->value($ticket->office->name)->label("اداره")->icon("") }}
+        {{ Html::info()->when($ticket->isFieldDefined("email"))->value($ticket->email)->label("ایمیل")->icon("") }}
                         </div>
                         <div class="col-md-6">
 {{--                            {{ Html::info()->value($queue->comment)->label("توضیحات")->icon("info") }}--}}
@@ -39,13 +52,13 @@
                 </div>
                 <div class="card-footer">
                     <div class="float-left">
-                        <a class="btn btn-outline-success btn-sm" href="{{ route("admin.queues.edit",$queue) }}"><i
-                                class="fa fa-edit"></i> ویرایش مشخصات </a>
+                       {{-- <a class="btn btn-outline-success btn-sm" href=""><i
+                                class="fa fa-edit"></i> ویرایش مشخصات </a>--}}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6 mb-4">
+       {{-- <div class="col-md-6 mb-4">
             <div class="card ">
                 <div class="card-header">
                     گزارش
@@ -220,6 +233,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div>
 @endsection
