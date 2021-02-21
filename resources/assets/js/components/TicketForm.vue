@@ -106,8 +106,6 @@
                                 confirmButtonText: "بسیار خب",
                                 focusConfirm: true,
                             })
-
-
                         }
                     });
             },
@@ -148,11 +146,9 @@
             },
             citySelected(event) {
                 let city_id = event.target.value;
-                this.offices = _.keyBy(this.cities,"id")[city_id]["offices"];
+                this.offices = _.keyBy(this.cities,"id")[city_id]["offices"].data;
             }
-
         },
-
         mounted() {
         },
     }

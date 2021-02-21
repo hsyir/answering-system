@@ -45,7 +45,7 @@ class TicketController extends Controller
         ]);
 
         $data = $request->all();
-        $data["creator_id"] = Auth::user() ?? Auth::user()->id ;
+        $data["creator_id"] = Auth::user() ? Auth::user()->id : null ;
         $data["uuid"] = Str::random(16);
         $ticket = Ticket::create($data);
         return new TicketResource($ticket);

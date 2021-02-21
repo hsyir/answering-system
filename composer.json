@@ -9,8 +9,9 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "illuminate/support": "8.0",
-    "sanjabteam/baloot": "9999999-dev"
+    "illuminate/support": "^8.0",
+    "sanjabteam/baloot": "9999999-dev",
+    "maatwebsite/excel": "9999999-dev"
   },
   "autoload": {
     "psr-4": {

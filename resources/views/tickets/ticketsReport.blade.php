@@ -1,6 +1,6 @@
 @extends("answering::layout")
 @section("content_header")
-    @component("components.breadcrump",["items"=> ["Dashboard" =>"","current"=>"درخواست ها"]])
+    @component("components.breadcrump",["items"=> ["Dashboard" =>"","current"=>"گزارش ها"]])
     @endcomponent
 @endsection
 
@@ -10,7 +10,7 @@
 @section("content")
 
     <div class="card">
-        <div class="card-header">درخواست ها</div>
+        <div class="card-header">گزارش ها</div>
         <div class="card-body">
             <table class="table ">
                 <thead>
@@ -18,6 +18,7 @@
                     <th>شماره پیگیری</th>
                     <th>دپارتمان</th>
                     <th>موضوع درخواست</th>
+                    <th>تاریخ تیکت</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                         <td>{{ $ticket->id }}</td>
                         <td>{{ $ticket->department->name }}</td>
                         <td><a href="{{route("answering.tickets.show",$ticket) }}">{{  $ticket->ticketSubject->title }}</a></td>
+                        <td>{{ $ticket->create_at_fa }}</td>
                     </tr>
                 @endforeach
                 </tbody>

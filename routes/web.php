@@ -28,3 +28,8 @@ Route::match(['PUT', "POST"], "cities", "CityController@store")->name("cities.st
 Route::post("cities/{city}/addOffice", "CityController@addOffice")->name("cities.addOffice");
 Route::get("getCities", "CityController@getCities")->name("getCities");
 Route::get("getOffices", "OfficeController@getOffices")->name("getOffices");
+
+
+Route::get("reports","ReportController@index")->name("reports.index");
+Route::get("reports/ticketsReport","ReportController@ticketsReport")->name("reports.ticketsReport");
+Route::put("reports/ticketsReport","ReportController@ticketsReport");

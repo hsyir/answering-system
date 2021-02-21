@@ -4,11 +4,13 @@
 namespace Hsy\AnsweringSystem\Models;
 
 
+use Baloot\EloquentHelper;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
 
+    use EloquentHelper;
     protected $guarded=[];
 
     public function department()
