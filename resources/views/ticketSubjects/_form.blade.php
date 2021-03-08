@@ -25,7 +25,7 @@
                     {{
                     Html::text("description")
                     ->value(old("description",$ticketSubject->description))
-                    ->label("توضح بیشتر")
+                    ->label("توضیح بیشتر")
                     ->description("")
                      }}
 
