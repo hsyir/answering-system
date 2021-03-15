@@ -61,7 +61,7 @@
                     <tr>
                         <td>{{ $ticket->id }}</td>
                         <td>{{ $ticket->department_name }}</td>
-                        <td><a href="{{route("answering.tickets.show",$ticket) }}">{{  $ticket->subject_title }}</a>
+                        <td><a href="{{route("answering.tickets.show",$ticket) }}"  class="loadInModal">{{  $ticket->subject_title }}</a>
                         </td>
                         <td>{{ $ticket->created_at_fa_ftt }}</td>
                     </tr>
@@ -70,5 +70,48 @@
             </table>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="ticketDetailModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">مشاهده تیکت</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @push("js")
+
+        <script>
+            $(document).ready(function(){
+                $("a.loadInModal").click(function(e){
+                    e.preventDefault();
+
+                    $("#ticketDetailModal .modal-body").html("لطفا صبر کنید ...");
+                    $("#ticketDetailModal").modal("show");
+                    let url = $(this).attr("href");
+                    axios.get(url).then(
+                        res => {
+                            $("#ticketDetailModal .modal-body").html(res.data);
+                        }
+                    )
+
+
+                })
+            })
+        </script>
+    @endpush
 
 @endsection
