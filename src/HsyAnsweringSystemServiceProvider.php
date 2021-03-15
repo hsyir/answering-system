@@ -70,14 +70,13 @@ class HsyAnsweringSystemServiceProvider extends ServiceProvider
         return [
             'namespace' => 'Hsy\AnsweringSystem\Http\Controllers',
             'prefix' => "answering",
-            'middleware' => ['web'],
+            'middleware' => ['web',"auth"],
             "as"=>"answering.",
         ];
     }
 
     private function registerConfigs()
     {
-
         $this->mergeConfigFrom(__DIR__ . '/../config/answering.php', 'answering');
     }
 
