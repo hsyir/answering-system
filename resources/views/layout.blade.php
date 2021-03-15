@@ -1,1 +1,1 @@
-@extends("adminlte::page")
+@extends(request()->expectsJson() ? "answering::layout-ajax" : "adminlte::page")
