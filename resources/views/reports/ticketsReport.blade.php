@@ -46,13 +46,15 @@
     <div class="card">
         <div class="card-header">درخواست ها</div>
         <div class="card-body">
-            {{ $tickets->render() }}
+            {{ $tickets->withQueryString()->render() }}
             <table class="table ">
                 <thead>
                 <tr>
                     <th>شماره پیگیری</th>
                     <th>دپارتمان</th>
                     <th>موضوع درخواست</th>
+                    <th>شهر</th>
+                    <th>اداره</th>
                     <th>تاریخ</th>
                 </tr>
                 </thead>
@@ -63,6 +65,8 @@
                         <td>{{ $ticket->department_name }}</td>
                         <td><a href="{{route("answering.tickets.show",$ticket) }}"  class="loadInModal">{{  $ticket->subject_title }}</a>
                         </td>
+                        <td>{{ $ticket->city->name }}</td>
+                        <td>{{ $ticket->office->name }}</td>
                         <td>{{ $ticket->created_at_fa_ftt }}</td>
                     </tr>
                 @endforeach

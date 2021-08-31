@@ -24,60 +24,17 @@
                             {{
 
                                 Html::info()
-                                    ->value($ticket->created_at_fa_ftt)
-                                    ->label("تاریخ ایجاد")
-                                    ->icon("edit")
-                            }}
-                            {{
-
-                                Html::info()
-                                    ->value($ticket->creator->name)
-                                    ->label("کاربر ایجاد کننده")
-                                    ->icon("user-plus")
-                            }}
-                            {{
-
-                                Html::info()
-                                    ->value($ticket->user->name)
-                                    ->label("کاربر مسئول")
-                                    ->icon("user")
-                            }}
-                            {{
-
-                                 Html::info()
-                                    ->value($ticket->priority_id)
-                                    ->label("اولویت")
+                                    ->value($ticket->caller_name)
+                                    ->label("نام تماس گیرنده")
                                     ->icon("")
                             }}
                             {{
 
-                                 Html::info()
-                                    ->value($ticket->status_id)
-                                    ->label("وضعیت")
+                                Html::info()
+                                    ->when($ticket->isFieldDefined("national_code"))
+                                    ->value($ticket->national_code)
+                                    ->label("کد ملی")
                                     ->icon("")
-                            }}
-
-
-                            {{
-
-                                Html::info()
-                                    ->value($ticket->ticketSubject->title)
-                                    ->label("موضوع درخواست")
-                                    ->icon("office")
-                            }}
-                            {{
-                                Html::info()
-                                    ->when($ticket->isFieldDefined("body"))
-                                    ->value($ticket->body)
-                                    ->label("متن درخواست")
-                                    ->icon("office")
-                            }}
-                            {{
-
-                                Html::info()
-                                    ->value($ticket->department->name)
-                                    ->label("دپارتمان")
-                                    ->icon("office")
                             }}
                             {{
 
@@ -103,6 +60,74 @@
                                     ->label("آدرس")
                                     ->icon("")
                             }}
+
+
+                            {{
+
+                                Html::info()
+                                    ->value($ticket->ticketSubject->title)
+                                    ->label("موضوع درخواست")
+                                    ->icon("office")
+                            }}
+                            {{
+                                Html::info()
+                                    ->when($ticket->isFieldDefined("body"))
+                                    ->value($ticket->body)
+                                    ->label("متن درخواست")
+                                    ->icon("office")
+                            }}
+
+                            {{
+
+                                Html::info()
+                                    ->value($ticket->created_at_fa_ftt)
+                                    ->label("تاریخ ایجاد")
+                                    ->icon("edit")
+                            }}
+                            {{
+
+                                Html::info()
+                                    ->value($ticket->user->name)
+                                    ->label("کاربر مسئول")
+                                    ->icon("user")
+                            }}
+                         {{--   {{
+
+                                 Html::info()
+                                    ->value($ticket->priority_id)
+                                    ->label("اولویت")
+                                    ->icon("")
+                            }}
+                            {{
+
+                                 Html::info()
+                                    ->value($ticket->status_id)
+                                    ->label("وضعیت")
+                                    ->icon("")
+                            }}--}}
+
+
+                            {{
+
+                                Html::info()
+                                    ->value($ticket->city->name)
+                                    ->label("شهر")
+                                    ->icon("map")
+                            }}
+                            {{
+
+                                Html::info()
+                                    ->value($ticket->office->name)
+                                    ->label("اداره")
+                                    ->icon("office")
+                            }}
+                            {{
+
+                                Html::info()
+                                    ->value($ticket->department->name)
+                                    ->label("دپارتمان")
+                                    ->icon("office")
+                            }}
                             {{
 
                                 Html::info()
@@ -114,27 +139,12 @@
                             {{
 
                                 Html::info()
-                                    ->value($ticket->caller_name)
-                                    ->label("نام تماس گیرنده")
-                                    ->icon("")
-                            }}
-                            {{
-
-                                Html::info()
-                                    ->when($ticket->isFieldDefined("national_code"))
-                                    ->value($ticket->national_code)
-                                    ->label("کد ملی")
-                                    ->icon("")
-                            }}
-                            {{
-
-                                Html::info()
                                     ->when($ticket->isFieldDefined("city_id"))
                                     ->value($ticket->city->name)
                                     ->label("شهر")
                                     ->icon("")
                             }}
-                            {{
+                        {{--    {{
 
                                 Html::info()
                                     ->when($ticket->isFieldDefined("office_id"))
@@ -150,8 +160,15 @@
                                     ->label("ایمیل")
                                     ->icon("")
 
-                            }}
+                            }}--}}
 
+                            {{
+
+                                Html::info()
+                                    ->value($ticket->creator->name)
+                                    ->label("کاربر ایجاد کننده")
+                                    ->icon("user-plus")
+                            }}
                         </div>
                     </div>
 

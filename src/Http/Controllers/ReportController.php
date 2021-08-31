@@ -26,11 +26,12 @@ class ReportController extends Controller
                 $q->whereTicketSubjectId($request->ticket_subject_id);
             })
             ->when($request->from_date, function ($q) use ($request) {
-                $q->whereJalali("created_at", ">=", $request->from_date);
+                $q->whereJalali("tickets.created_at", ">=", $request->from_date);
             })
             ->when($request->to_date, function ($q) use ($request) {
-                $q->whereJalali("created_at", "<=", $request->to_date);
+                $q->whereJalali("tickets.created_at", "<=", $request->to_date);
             })
+            ->latest()
             ->join("departments","departments.id","tickets.department_id")
             ->join("ticket_subjects","ticket_subjects.id","tickets.ticket_subject_id")
             ->paginate(100);
